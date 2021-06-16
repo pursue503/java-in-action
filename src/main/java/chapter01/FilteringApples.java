@@ -46,6 +46,13 @@ public class FilteringApples {
         List<Apple> appleList1 = inventory.stream().filter(apple -> apple.getWeight() > 150 && "green".equals(apple.getColor())).collect(Collectors.toList());;
         System.out.println(appleList1);
 
+        //순차처리
+        List<Apple> appleList2 = inventory.stream().filter( (Apple apple) -> apple.getWeight() > 150 ).collect( Collectors.toList());
+        System.out.println(appleList2);
+
+        //병렬처리
+        List<Apple> appleList3 = inventory.parallelStream().filter((Apple apple) -> apple.getWeight() > 150).collect(Collectors.toList());
+
     }
 
     // 예시에 사용할 Apple 클래스 작성
